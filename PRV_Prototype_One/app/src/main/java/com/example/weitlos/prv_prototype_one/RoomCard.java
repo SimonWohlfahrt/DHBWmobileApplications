@@ -1,6 +1,7 @@
 package com.example.weitlos.prv_prototype_one;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.support.annotation.NonNull;
@@ -32,17 +34,18 @@ import java.io.IOException;
 public class RoomCard extends View {
 
     private int mRoomId;
-    private String mName;
-    private String mLocation;
-    private float mPriceRepresentation;
+    private String mName = "kleine chilenische Küche";
+    private String mLocation = "Mannheim Neckarau";
+    private float mPriceRepresentation = 5.0f;
     private Bitmap mPreview;
 
     private TextPaint mTextPaint;
     private RectF mRectCardBackground;
-    private RectF mRectInfoArea;
 
-    private float mPadding = 0;
-    private float mCornerRadius = 15;
+    private float mInfoSectionHeight = 200f;
+
+    private float mPadding = 0f;
+    private float mCornerRadius = 15f;
 
     private File picture;
 
@@ -74,8 +77,7 @@ public class RoomCard extends View {
         */
 
         mRectCardBackground = new RectF();
-        mRectInfoArea = new RectF();
-
+/*
         picture = null;
         try {
             picture = File.createTempFile("images", "jpg");
@@ -106,9 +108,11 @@ public class RoomCard extends View {
 
 
         // Set up a default TextPaint object
+        */
 
         // Update TextPaint and text measurements from attributes
         invalidateTextPaintAndMeasurements();
+
     }
 
     private void invalidateTextPaintAndMeasurements() {
@@ -130,21 +134,31 @@ public class RoomCard extends View {
         int contentHeight = getHeight() - paddingTop - paddingBottom;
 
 
-        mRectCardBackground.set(mPadding, mPadding, this.getWidth() - mPadding, this.getHeight() - mPadding);
-        mRectInfoArea.set(mRectCardBackground.left, mRectCardBackground.bottom - 200, mRectCardBackground.right, mRectCardBackground.bottom);
+        mRectCardBackground.set(0, 0, this.getWidth(), this.getHeight() - mInfoSectionHeight);
+
+        String textColor = "#E6E6E6"; // Dark: #232930
 
         Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-        p.setColor(Color.parseColor("#EEEEEE"));
+        p.setColor(Color.parseColor("#E6E6E6"));
         canvas.drawRoundRect(mRectCardBackground, mCornerRadius, mCornerRadius, p );
 
-        p.setColor(Color.parseColor("#666666"));
-        canvas.drawRoundRect(mRectInfoArea, mCornerRadius, mCornerRadius, p);
-        canvas.drawRect(mRectInfoArea.left, mRectInfoArea.top, mRectInfoArea.right, mRectInfoArea.top + mCornerRadius, p);
+        // Location
+        p.setTextSize(45);
+        p.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "gadugi.ttf" ));
+        p.setColor(Color.parseColor(textColor));
+        canvas.drawText("in " + mLocation, 1, (this.getHeight() - (mInfoSectionHeight)) + (60 + 60 + 25), p);
 
-        //mPreview = BitmapFactory.decodeResource(getResources(), R.drawable.ic_house);
-        if (mPreview != null)
-            canvas.drawBitmap(mPreview, 0, 0, null);
+        // Name
+        p.setTextSize(65);
+        p.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "gadugib.ttf" ));
+        canvas.drawText(mName, 1, (this.getHeight() - (mInfoSectionHeight)) + (60 + 25), p);
+
+        // Price
+        p.setTextAlign(Paint.Align.RIGHT);
+        p.setTextSize(65);
+        p.setColor(Color.parseColor("#F9B031"));
+        canvas.drawText(mPriceRepresentation + "€", this.getWidth() - 1, (this.getHeight() - (mInfoSectionHeight)) + (60 + 25), p);
     }
 
 }

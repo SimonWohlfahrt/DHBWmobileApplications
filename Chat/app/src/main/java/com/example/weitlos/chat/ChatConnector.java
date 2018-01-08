@@ -18,11 +18,11 @@ import java.net.URL;
 
 public class ChatConnector extends AsyncTask<String, Integer, JSONArray> {
 
-    public AsyncResponse delegate = null;
-
     public interface AsyncResponse {
         void processFinish(JSONArray output);
     }
+
+    public AsyncResponse delegate = null;
 
     public ChatConnector(AsyncResponse delegate) {
         this.delegate = delegate;
