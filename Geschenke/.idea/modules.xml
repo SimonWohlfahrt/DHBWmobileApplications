@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Geschenke.iml" filepath="$PROJECT_DIR$/Geschenke.iml" />
+      <module fileurl="file://C:\Users\Simon\Documents\GitHub\DHBWmobileApplications\Geschenke\Geschenke.iml" filepath="C:\Users\Simon\Documents\GitHub\DHBWmobileApplications\Geschenke\Geschenke.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Simon\Documents\GitHub\DHBWmobileApplications\Geschenke\app\app.iml" filepath="C:\Users\Simon\Documents\GitHub\DHBWmobileApplications\Geschenke\app\app.iml" />
     </modules>
   </component>
 </project>
