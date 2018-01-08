@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.simon.travelapp.StartActivity">
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:background="?android:attr/colorAccent"
+        android:elevation="0dp"
+        android:enabled="true"
+        android:onClick="button_SubmitInput_OnClick"
+        android:text="@string/submit"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline_r50Vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <EditText
+                android:id="@+id/editText_dateTo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:ems="10"
+                android:focusable="false"
+                android:inputType="none|date"
+                android:longClickable="false"
+                android:nextFocusDown="@id/numberPicker_AmountAdults"
+                android:onClick="editText_dateRange_onClick"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline_r50Vertical"
+                app:layout_constraintTop_toTopOf="@+id/editText_dateFrom" />
+
+            <EditText
+                android:id="@+id/editText_dateFrom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:focusable="false"
+                android:inputType="none|date"
+                android:longClickable="false"
+                android:nextFocusDown="@id/editText_dateTo"
+                android:onClick="editText_dateRange_onClick"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_r50Vertical"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Date" />
+
+            <EditText
+                android:id="@+id/editText_destination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="32dp"
+                android:ems="10"
+                android:focusable="true"
+                android:inputType="text"
+                android:longClickable="true"
+                android:nextFocusDown="@id/editText_dateFrom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editText_PriceRangeMin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:inputType="number|numberDecimal"
+                android:longClickable="false"
+                android:nextFocusDown="@id/editText_PriceRangeMax"
+                android:text="100"
+                android:textAlignment="textEnd"
+                app:layout_constraintEnd_toStartOf="@+id/textView_CurrencyMin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_PriceRange" />
+
+            <EditText
+                android:id="@+id/editText_PriceRangeMax"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:inputType="number|numberDecimal"
+                android:longClickable="false"
+                android:nextFocusDown="@id/button_submit"
+                android:text="500"
+                android:textAlignment="textEnd"
+                app:layout_constraintEnd_toStartOf="@+id/textView_CurrencyMax"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline_r50Vertical"
+                app:layout_constraintTop_toBottomOf="@+id/textView_PriceRange" />
+
+            <NumberPicker
+                android:id="@+id/numberPicker_AmountAdults"
+                android:layout_width="64dp"
+                android:layout_height="146dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:nextFocusDown="@id/numberPicker_AmountKids"
+                app:layout_constraintEnd_toStartOf="@+id/numberPicker_AmountKids"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/numberPicker_AmountKids" />
+
+            <NumberPicker
+                android:id="@+id/numberPicker_AmountKids"
+                android:layout_width="64dp"
+                android:layout_height="146dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="40dp"
+                android:nextFocusDown="@id/numberPicker_AmountPets"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText_dateFrom" />
+
+            <NumberPicker
+                android:id="@+id/numberPicker_AmountPets"
+                android:layout_width="64dp"
+                android:layout_height="146dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="8dp"
+                android:nextFocusDown="@id/editText_PriceRangeMin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/numberPicker_AmountKids"
+                app:layout_constraintTop_toTopOf="@+id/numberPicker_AmountKids" />
+
+            <TextView
+                android:id="@+id/textView_Destination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/editText_destination"
+                android:text="Destination"
+                android:textAlignment="viewStart"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/editText_destination"
+                app:layout_constraintEnd_toEndOf="@+id/editText_destination"
+                app:layout_constraintStart_toStartOf="@+id/editText_destination" />
+
+            <TextView
+                android:id="@+id/textView_Date"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:labelFor="@+id/editText_dateTo"
+                android:text="Date..."
+                android:textAlignment="textStart"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText_destination" />
+
+            <TextView
+                android:id="@+id/textView_DateFrom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/editText_dateFrom"
+                android:text="From"
+                android:textAlignment="viewStart"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/editText_dateFrom"
+                app:layout_constraintEnd_toEndOf="@+id/editText_dateFrom"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/editText_dateFrom" />
+
+            <TextView
+                android:id="@+id/textView_DateTo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="To"
+                android:textAlignment="viewStart"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/editText_dateTo"
+                app:layout_constraintEnd_toEndOf="@+id/editText_dateTo"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/editText_dateTo" />
+
+            <TextView
+                android:id="@+id/textView_Amount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:labelFor="@+id/editText_dateTo"
+                android:text="Amount of..."
+                android:textAlignment="textStart"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/numberPicker_AmountKids"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_AmountAdults"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:labelFor="@+id/numberPicker_AmountAdults"
+                android:text="Adults"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/numberPicker_AmountAdults"
+                app:layout_constraintStart_toStartOf="@+id/numberPicker_AmountAdults"
+                app:layout_constraintTop_toBottomOf="@+id/numberPicker_AmountAdults" />
+
+            <TextView
+                android:id="@+id/textView_AmountKids"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:labelFor="@+id/numberPicker_AmountKids"
+                android:text="Kids"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/numberPicker_AmountKids"
+                app:layout_constraintStart_toStartOf="@+id/numberPicker_AmountKids"
+                app:layout_constraintTop_toBottomOf="@+id/numberPicker_AmountKids" />
+
+            <TextView
+                android:id="@+id/textView_AmountPets"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:labelFor="@+id/numberPicker_AmountPets"
+                android:text="Pets"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/numberPicker_AmountPets"
+                app:layout_constraintStart_toStartOf="@+id/numberPicker_AmountPets"
+                app:layout_constraintTop_toBottomOf="@+id/numberPicker_AmountPets" />
+
+            <TextView
+                android:id="@+id/textView_PriceRange"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:labelFor="@+id/editText_dateTo"
+                android:text="Price..."
+                android:textAlignment="textStart"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_AmountKids" />
+
+            <TextView
+                android:id="@+id/textView_PriceRangeMin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/editText_dateTo"
+                android:text="Minimum"
+                android:textAlignment="textStart"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/editText_PriceRangeMin"
+                app:layout_constraintEnd_toEndOf="@+id/editText_PriceRangeMin"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/editText_PriceRangeMin" />
+
+            <TextView
+                android:id="@+id/textView_PriceRangeMax"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/editText_dateTo"
+                android:text="Maximum"
+                android:textAlignment="textStart"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/editText_PriceRangeMax"
+                app:layout_constraintEnd_toEndOf="@+id/editText_PriceRangeMax"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/editText_PriceRangeMax" />
+
+            <TextView
+                android:id="@+id/textView_CurrencyMin"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_marginEnd="5dp"
+                android:labelFor="@+id/editText_dateTo"
+                android:text="EUR"
+                android:textAlignment="textStart"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/editText_PriceRangeMin"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_r50Vertical" />
+
+            <TextView
+                android:id="@+id/textView_CurrencyMax"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_marginEnd="5dp"
+                android:labelFor="@+id/editText_dateTo"
+                android:text="EUR"
+                android:textAlignment="textStart"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/editText_PriceRangeMax"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_NumberPickerError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="At least one hooman should attend right?"
+                android:textAlignment="center"
+                android:textColor="#ff0000"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_AmountKids" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.simon.zeitzonen.WartungActivity">
+
+    <TextView
+        android:id="@+id/t"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="..."
+        android:textColor="?android:attr/colorControlActivated"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMoskau" />
+
+    <Button
+        android:id="@+id/buttonNewYork"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:enabled="false"
+        android:text="New York"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMoskauAdd"
+        app:layout_constraintStart_toEndOf="@+id/buttonMoskauSub"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonNewYorkSub"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="New York"
+        android:onClick="SubTimeshift"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonNewYork" />
+
+    <Button
+        android:id="@+id/buttonNewYorkAdd"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="New York"
+        android:onClick="AddTimeshift"
+        android:text="+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonNewYork" />
+
+
+    <Button
+        android:id="@+id/buttonMoskau"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:enabled="false"
+        android:text="MOskau"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMoskauAdd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonMoskauSub"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSydney" />
+
+    <Button
+        android:id="@+id/buttonMoskauSub"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="Moskau"
+        android:onClick="SubTimeshift"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonMoskau" />
+
+    <Button
+        android:id="@+id/buttonMoskauAdd"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="Moskau"
+        android:onClick="AddTimeshift"
+        android:text="+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonMoskau" />
+
+    <Button
+        android:id="@+id/buttonSeoul"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:enabled="false"
+        android:text="Seoul"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMoskauAdd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonMoskauSub"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNewYork" />
+
+    <Button
+        android:id="@+id/buttonSeoulSub"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="Seoul"
+        android:onClick="SubTimeshift"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonSeoul" />
+
+    <Button
+        android:id="@+id/buttonSeoulAdd"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="Seoul"
+        android:onClick="AddTimeshift"
+        android:text="+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonSeoul" />
+
+    <Button
+    android:id="@+id/buttonParis"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:enabled="false"
+    android:text="Paris"
+    app:layout_constraintEnd_toStartOf="@+id/buttonMoskauAdd"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toEndOf="@+id/buttonMoskauSub"
+    app:layout_constraintTop_toBottomOf="@+id/buttonSeoul" />
+
+    <Button
+        android:id="@+id/buttonParisSub"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="Paris"
+        android:onClick="SubTimeshift"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonParis" />
+
+    <Button
+        android:id="@+id/buttonParisAdd"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="Paris"
+        android:onClick="AddTimeshift"
+        android:text="+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonParis" />
+
+    <Button
+        android:id="@+id/buttonSydney"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:enabled="false"
+        android:text="Sydney"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMoskauAdd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonMoskauSub"
+        app:layout_constraintTop_toBottomOf="@+id/buttonParis" />
+
+    <Button
+        android:id="@+id/buttonSydneySub"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="Sydney"
+        android:onClick="SubTimeshift"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonSydney" />
+
+    <Button
+        android:id="@+id/buttonSydneyAdd"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="Sydney"
+        android:onClick="AddTimeshift"
+        android:text="+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonSydney" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+</android.support.constraint.ConstraintLayout>
