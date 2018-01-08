@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="RoomCard">
+        <attr name="defaultDimension" format="dimension" />
+        <attr name="defaultBackgroundColor" format="color" />
+    </declare-styleable>
+</resources>

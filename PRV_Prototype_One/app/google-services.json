@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "724378512194",
+    "firebase_url": "https://db-prvprototypeone.firebaseio.com",
+    "project_id": "db-prvprototypeone",
+    "storage_bucket": "db-prvprototypeone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724378512194:android:e8c08ed693558bb7",
+        "android_client_info": {
+          "package_name": "com.example.weitlos.prv_prototype_one"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724378512194-i6gts4521fkqkf281lmqo39i7am2blro.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.weitlos.prv_prototype_one",
+            "certificate_hash": "1965c60a00311b9993bb42185ea8017e0cc0e960"
+          }
+        },
+        {
+          "client_id": "724378512194-gitaliv2hidlnd5mcqudb74njr870rsh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtCnCm9PjnasQGgYfV2ykMww8hR1KAfMs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724378512194-gitaliv2hidlnd5mcqudb74njr870rsh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
