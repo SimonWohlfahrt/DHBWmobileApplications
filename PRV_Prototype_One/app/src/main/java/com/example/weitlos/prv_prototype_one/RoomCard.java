@@ -5,11 +5,13 @@ import android.content.res.AssetManager;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.shapes.RoundRectShape;
@@ -24,9 +26,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * TODO: document your custom view class.
@@ -41,6 +45,7 @@ public class RoomCard extends View {
 
     private TextPaint mTextPaint;
     private RectF mRectCardBackground;
+    private Rect mRectImage;
 
     private float mInfoSectionHeight = 200f;
 
@@ -77,40 +82,8 @@ public class RoomCard extends View {
         */
 
         mRectCardBackground = new RectF();
-/*
-        picture = null;
-        try {
-            picture = File.createTempFile("images", "jpg");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        mRectImage = new Rect();
 
-        StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
-        StorageReference riversRef = mStorageRef.child("https://firebasestorage.googleapis.com/v0/b/db-prvprototypeone.appspot.com/o/house.jpg?alt=media&token=08fa95a5-cca1-4135-82b7-5e80b6b4c4f4");
-
-        riversRef.getFile(picture)
-                .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                        // Successfully downloaded data to local file
-                        // ...
-
-                        mPreview = BitmapFactory.decodeFile(picture.getPath());
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle failed download
-                // ...
-            }
-        });
-
-
-
-        // Set up a default TextPaint object
-        */
-
-        // Update TextPaint and text measurements from attributes
         invalidateTextPaintAndMeasurements();
 
     }
@@ -135,13 +108,13 @@ public class RoomCard extends View {
 
 
         mRectCardBackground.set(0, 0, this.getWidth(), this.getHeight() - mInfoSectionHeight);
+        mRectImage.set(0, 0, this.getWidth(), Math.round(this.getHeight() - mInfoSectionHeight));
 
-        String textColor = "#E6E6E6"; // Dark: #232930
+        String textColor = "#232930"; // Dark: #232930 Light: #E6E6E6
 
         Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-        p.setColor(Color.parseColor("#E6E6E6"));
-        canvas.drawRoundRect(mRectCardBackground, mCornerRadius, mCornerRadius, p );
+
 
         // Location
         p.setTextSize(45);
@@ -159,6 +132,28 @@ public class RoomCard extends View {
         p.setTextSize(65);
         p.setColor(Color.parseColor("#F9B031"));
         canvas.drawText(mPriceRepresentation + "€", this.getWidth() - 1, (this.getHeight() - (mInfoSectionHeight)) + (60 + 25), p);
+
+        // Background
+        p.setColor(Color.parseColor("#E6E6E6"));
+        canvas.drawRoundRect(mRectCardBackground, mCornerRadius, mCornerRadius, p );
+
+        // Image
+
+        InputStream fileStream = null;
+
+
+
+        try {
+            fileStream = getContext().getAssets().open("2017-04-10_Chile-3004.jpg");
+            Bitmap image = BitmapFactory.decodeStream(fileStream);
+
+            canvas.drawBitmap(image, mRectImage, mRectCardBackground, p);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 }

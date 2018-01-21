@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Geschenke.iml" filepath="$PROJECT_DIR$/Geschenke.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ColorPalette.iml" filepath="$PROJECT_DIR$/ColorPalette.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
