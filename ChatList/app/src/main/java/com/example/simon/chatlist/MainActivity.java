@@ -54,7 +54,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
                 }
             }
         });
-        chatConnector.execute();
+        chatConnector.getRooms();
 
         return mChatMessages;
     }

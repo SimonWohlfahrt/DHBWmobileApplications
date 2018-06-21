@@ -63,7 +63,7 @@ public class DetailActivity extends Activity implements AdapterView.OnItemClickL
                 }
             }
         });
-        chatConnector.execute();
+        chatConnector.getRooms();
 
         return mChatMessages;
     }
